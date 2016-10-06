@@ -1,5 +1,21 @@
 [![Build Status](https://travis-ci.org/Zatvobor/tirexs.svg?branch=master)](https://travis-ci.org/Zatvobor/tirexs) [![HEX version](https://img.shields.io/hexpm/v/tirexs.svg)](https://hex.pm/packages/tirexs) [![HEX downloads](https://img.shields.io/hexpm/dw/tirexs.svg)](https://hex.pm/packages/tirexs) [![Deps Status](https://beta.hexfaktor.org/badge/all/github/Zatvobor/tirexs.svg)](https://beta.hexfaktor.org/github/Zatvobor/tirexs)
 
+**This is a fork of [Zatvobor/tirexs](https://github.com/Zatvobor/tirexs) which adds the following features**:
+
+1. Encodes data coming from ElasticSearch using string keys, not atoms. Data in ElasticSearch _may_ be derived from user input, and decoding it using atoms opens an attack vector.
+2. Adds ability to sign requests to AWS ElasticSearch instances:
+
+```elixir
+config :tirexs,
+  aws_elasticsearch: true,
+  uri: "uri",
+  aws_access_key_id: "access key",
+  aws_secret_access_key: "secret access key",
+  aws_region: "region"
+```
+
+---
+
 An Elixir flavored HTTP client and DSL library for building JSON based settings, mappings, queries and percolators to Elasticsearch engine.
 
 ## Getting Started
